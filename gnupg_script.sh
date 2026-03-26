@@ -14,3 +14,4 @@ gpg --import NOMBRELEGIDO_mi_llave_públic.asc #lo ultimo depende del nombre, es
 $ echo "este mensaje es solo para sus ojos" > doc_no_cifrado.txt #creacion de un mensaje estandar
 gpg --output doc_cifrado.txt --encrypt --recipient slucina0406@gmail.com doc_no_cifrado.txt #esto es para enviar un documento cifrado a la persona de la que tenemos la info de la llave
 gpg --decrypt SantiLucina_doc_cifrado.txt #aqui, con el doc cifrado que obtuvimos de nuestro compañero le cambiamos el nombre y desciframos el mensaje en formato txt
+gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt #esto crea una firma para verificar que el documento no ha sido cambiado ni modificado desde su origen
