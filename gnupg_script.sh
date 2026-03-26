@@ -16,3 +16,4 @@ gpg --output doc_cifrado.txt --encrypt --recipient slucina0406@gmail.com doc_no_
 gpg --decrypt SantiLucina_doc_cifrado.txt #aqui, con el doc cifrado que obtuvimos de nuestro compañero le cambiamos el nombre y desciframos el mensaje en formato txt
 gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt #esto crea una firma para verificar que el documento no ha sido cambiado ni modificado desde su origen
 cat doc_no_cifrado_firmado.txt #con este comando se comprueba la generación correcta de la firma
+gpg --verify SantiLucina_doc_no_cifrado_firmado.txt #este comando se usa para verificar la firma de mi compañero
