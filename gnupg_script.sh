@@ -19,3 +19,4 @@ cat doc_no_cifrado_firmado.txt #con este comando se comprueba la generación cor
 gpg --verify SantiLucina_doc_no_cifrado_firmado.txt #este comando se usa para verificar la firma de mi compañero
 gpg --edit-key XXXX #este comando sirve para dar un voto de confianza a la persona dueña de la llave, las x pueden ser reemplazadas con la llave RSA o con el correo electrónico registrado
 gpg --sign-key XXXXX #con este comando firmamos la clave para ratificar nuestra decisión
+gpg --verify SantiLucina_doc_no_cifrado_firmado.txt #este comando se usa para volcer a ver el documento firmado con nuestro compañero, ahora con el voto de confianza
