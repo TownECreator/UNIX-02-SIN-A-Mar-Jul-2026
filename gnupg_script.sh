@@ -7,3 +7,4 @@ gpg --list-keys #para mostrar llaves existentes
 #se usa algoritmo RSA por que tiene retrocompatibilidad, además, 4096 bits es suficientemente grande para seguridad pero suficientemente pequeña para que 
 #computadoras comunes puedan comprobar la contraseña
 #para exportar una llave a un documento: gpg --armor --export usuario@ejemplo.com > mi_clave_publica.asc
+gpg --list-secret-keys --keyid-format-long #exportar la llave privada
