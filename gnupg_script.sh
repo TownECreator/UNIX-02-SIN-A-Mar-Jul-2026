@@ -17,3 +17,4 @@ gpg --decrypt SantiLucina_doc_cifrado.txt #aqui, con el doc cifrado que obtuvimo
 gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt #esto crea una firma para verificar que el documento no ha sido cambiado ni modificado desde su origen
 cat doc_no_cifrado_firmado.txt #con este comando se comprueba la generación correcta de la firma
 gpg --verify SantiLucina_doc_no_cifrado_firmado.txt #este comando se usa para verificar la firma de mi compañero
+gpg --edit-key XXXX #este comando sirve para dar un voto de confianza a la persona dueña de la llave, las x pueden ser reemplazadas con la llave RSA o con el correo electrónico registrado
