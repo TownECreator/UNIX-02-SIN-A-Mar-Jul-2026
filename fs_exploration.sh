@@ -11,3 +11,4 @@ sudo apt upgrade #Upgrades all installed packages to their latest available vers
 sudo apt install parted #Installs the parted program on your system.
 
 #sometimes you can turn up with a dependencies hell haha
+sudo parted -l && echo -e "\n---\n" && lsblk -f && echo -e "\n---\n" # Lists disk partitions and filesystem information, separating the output for readability, and only proceeds if each command succeeds.
