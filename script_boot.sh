@@ -39,5 +39,15 @@ total 8
 #rwx (group) → read, write, execute
 #rwx (others) → read, write, execute
 #+ → there are extra ACL permissions (advanced access control rules)
-#the 2 and 5 meand the number of hard links in this inode, codespace is the group  owner, 4096 is the size in bytes for the directory, and the date eans the last modification made.
+#the 2 and 5 mean the number of hard links in this inode, codespace is the group  owner, 4096 is the size in bytes for the directory, and the date eans the last modification made.
 
+stat . stat .   # Displays detailed information about the current directory, including inode number, permissions, size, ownership, and timestamps (access, modification, change)
+
+  Size: 4096            Blocks: 8          IO Block: 4096   directory
+Device: 7,4     Inode: 1572986     Links: 2
+Access: (0777/drwxrwxrwx)  Uid: ( 1000/codespace)   Gid: ( 1000/codespace)
+Access: 2026-04-09 12:19:05.371201972 +0000
+Modify: 2026-04-09 12:19:05.370201972 +0000
+Change: 2026-04-09 12:19:05.370201972 +0000
+ Birth: 2026-04-09 12:19:05.370201972 +0000
+#In Linux output (like from stat), device 7,4 refers to the device ID of the filesystem where the file/directory is stored.
