@@ -28,3 +28,16 @@ cd /bin          # Changes directory to /bin, which contains essential system bi
 ls -a            # Lists all files, including hidden files (starting with .)
 ls -all          # Same idea as detailed listing; in most systems this is equivalent to "ls -l -a" or may not be valid as a separate option (correct form is usually "ls -la")
 # . means actual directory, while .. represents the parent directory
+# drwxr-xr-x directory read, write, execute, meaning the owner has these permissions. drwxr is the user that creates the directory, and u can identenitfy the user that creater that right after the hard link umber 
+
+total 8
+1572986 drwxrwxrwx+ 2 codespace codespace 4096 Apr  9 12:19 .
+1572874 drwxrwxrwx+ 5 codespace root      4096 Apr  9 12:19 ..
+# 1572986 and 1572874 are the inode number, unique IDs of this directory in the filesystem,
+# the d means directory, and the rest of the letters here splin into groups:
+#rwx (owner) → read, write, execute
+#rwx (group) → read, write, execute
+#rwx (others) → read, write, execute
+#+ → there are extra ACL permissions (advanced access control rules)
+#the 2 and 5 meand the number of hard links in this inode, codespace is the group  owner, 4096 is the size in bytes for the directory, and the date eans the last modification made.
+
