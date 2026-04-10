@@ -31,7 +31,12 @@ cd ..
 # Moves one directory up (goes back to the parent directory, exiting /linux)
 
 git clone --depth 1 https://git.busybox.net/busybox
-cd busybox
+cs -t fat boot
+syslinux boot
+mkdir m
+mount boot m
+cp bzImage init.cpio m
+umount md busybox
 make menuconfig
 make -j 2
 sudo mkdir /boot-files/initramfs
@@ -44,3 +49,7 @@ sudo rm linuxrc
 sudo chmod +x init
 sudo sh -c "find . | cpio -o -H newc > ../init.cpio"
 cd
+
+sudo su 
+dd if=/dev/zero of=boot bs=1M count=50
+mkf
