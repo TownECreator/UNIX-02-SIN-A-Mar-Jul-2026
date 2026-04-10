@@ -22,5 +22,17 @@ make -j 2
 # Compiles the Linux kernel using 2 parallel jobs (faster build using 2 CPU threads).
 
 sudo mkdir /boot-files
+# Creates the /boot-files directory in the root filesystem with administrator privileges
+
 sudo cp arch/x86/boot/bzImage /boot-files/
+# Copies the compiled kernel (bzImage) from its location into the /boot-files directory
+
 cd ..
+# Moves one directory up (goes back to the parent directory, exiting /linux)
+
+git clone --depth 1 https://git.busybox.net/busybox
+cd busybox
+make menuconfig
+make -j 2
+sudo mkdir /boot-files/initramfs
+sudo make CONFIG_PREFIX=/boot-files/initramfs install
