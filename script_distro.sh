@@ -20,3 +20,7 @@ make menuconfig
 
 make -j 2  
 # Compiles the Linux kernel using 2 parallel jobs (faster build using 2 CPU threads).
+
+sudo mkdir /boot-files
+sudo cp arch/x86/boot/bzImage /boot-files/
+cd ..
