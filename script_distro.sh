@@ -36,3 +36,11 @@ make menuconfig
 make -j 2
 sudo mkdir /boot-files/initramfs
 sudo make CONFIG_PREFIX=/boot-files/initramfs install
+cd /boot-files/initramfs
+sudo vi init
+#! /bin/sh
+/bin/sh
+sudo rm linuxrc
+sudo chmod +x init
+sudo sh -c "find . | cpio -o -H newc > ../init.cpio"
+cd
