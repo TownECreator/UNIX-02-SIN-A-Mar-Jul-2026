@@ -7,4 +7,14 @@ ls -l #Displays files in long format (permissions, owner, size, date, filename, 
 ls -h #shows the file sizes in human-readable format
 
 ls -l -a -h #combines everything the previous ls do
-ls -lah # Same as above, just the short combined version of the flags
+
+ls -lah #Same as above, just the short combined version of the flags
+
+mkdir -- -rf 
+# -- tells the command to stop parsing options (flags)
+# -rf is treated as a literal name, not as flags
+# this creates a directory named "-rf"
+
+rm -rf #forcefully and recursively deletes files and directories without confirmation (very dangerous) usually it does not work with directories with '-' 
+
+rmdir -- -rf #removes an empty directory named "-rf" by using -- to stop option parsing, it works with direcories starting with '-'
