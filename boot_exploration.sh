@@ -29,3 +29,22 @@ man git-clone #opens the manual page for the git clone command, showing detailed
 
 --depth # Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless --no-single-branch is given to fetch the histories near the tips of all branches. If you want to clone submodules shallowly, also pass --shallow-submodules.
     #it creates a shallow copy because with depth, we can choose some commits to copy from
+
+#el guionsito al inicio de -rw-rw-rw-  1 codespace root        906 Apr 16 12:23 doci_no_cifrado_firmado.txt significa que es un archivo notmal
+# cuando tiene l al principio es un enlace simbólico, si entre el rwx hay algun - que reemplace a las letras mencionadas, significa que no posee dicho permiso
+
+chmod #means change mode, it has two sintaxes, one symbolic and one numeric
+
+touch script.sh            # creates an empty file named script.sh
+
+chmod +x script.sh         # adds execute permission for all users (user, group, others)
+
+chmod u+x script.sh        # adds execute permission only for the owner (user)
+
+touch secreto.txt          # creates an empty file named secreto.txt
+
+chmod o-r secreto.txt      # removes read permission for others (public)
+
+touch privado              # creates an empty file named privado
+
+chmod u+rw,go-rwx privado  # gives read/write to owner, removes all permissions from group and others
