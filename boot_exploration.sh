@@ -83,3 +83,32 @@ sudo su # Switches to the root user by starting a shell as root (uses sudo to ga
 sudo su -   # Switches to the root user and loads root’s full login environment (like a fresh root login shell)
 echo "$HOME"   # Prints the value of the HOME environment variable (your home directory) because double quotes allow variable expansion
 echo '$HOME'   # Prints the literal text "$HOME" because single quotes prevent variable expansion
+
+echo '#!/bin/sh' > hola.sh
+# echo           → command: prints text to standard output
+# '#!/bin/sh'    → argument (string literal): shebang line indicating the script should use /bin/sh
+# >              → redirection operator: overwrites/creates the file
+# hola.sh        → filename (target file)
+# RESULT         → creates hola.sh with the shebang line
+
+echo 'echo "Hola desde mi primer script"' >> hola.sh
+# echo           → command
+# 'echo "Hola desde mi primer script"' → argument (string literal containing another command)
+# >>             → redirection operator: appends to the file (does NOT overwrite)
+# hola.sh        → filename
+# RESULT         → adds a line that will print a message when the script runs
+
+cat hola.sh
+# cat            → command: displays file contents
+# hola.sh        → argument (file to read)
+# RESULT         → shows the script content in the terminal
+
+./hola.sh
+# ./             → path indicator: run file from current directory
+# hola.sh        → executable script
+# RESULT         → executes the script (if it has execute permissions), printing the message
+
+ls -l hola.sh # Lists detailed info of hola.sh (permissions, owner, size, date)
+chmod +x hola.sh # Grants execute permission so the file can be run as a script
+ls -l hola.sh # Displays updated permissions (you’ll now see "x" in the permission bits)
+./hola.sh # Executes the script in the current directory, running its commands
