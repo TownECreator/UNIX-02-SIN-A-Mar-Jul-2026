@@ -112,3 +112,18 @@ ls -l hola.sh # Lists detailed info of hola.sh (permissions, owner, size, date)
 chmod +x hola.sh # Grants execute permission so the file can be run as a script
 ls -l hola.sh # Displays updated permissions (you’ll now see "x" in the permission bits)
 ./hola.sh # Executes the script in the current directory, running its commands
+
+ls /etc # Does NOT need sudo → only lists contents (read access is allowed for most users)
+
+touch /etc/prueba.txt # Needs sudo → tries to create a file inside /etc (protected system directory)
+# Correct usage:
+sudo touch /etc/prueba.txt
+
+mkdir ~/mi_carpeta # Does NOT need sudo → creates a directory in your home (~ = /home/your_user)
+# (You had the squiggly line wrong; it's ~ not something else)
+
+apt install cowsay # Needs sudo → installs a package (modifies system files)
+# Correct usage:
+sudo apt install cowsay   # Installs the "cowsay" package system-wide using root privileges
+
+banner HELLO   # Prints the word "HELLO" in large ASCII-style letters across the terminal
