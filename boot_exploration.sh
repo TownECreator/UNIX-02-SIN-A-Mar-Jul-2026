@@ -127,3 +127,16 @@ apt install cowsay # Needs sudo → installs a package (modifies system files)
 sudo apt install cowsay   # Installs the "cowsay" package system-wide using root privileges
 
 banner HELLO   # Prints the word "HELLO" in large ASCII-style letters across the terminal
+
+#each one of the three permissions (r, w, x) has it's equivalent in numerical form:
+# r = 4 (four letters in "read")
+# w = 2 (two v)
+# x = 1
+
+#we have to add them to obtain the combined permissions of a block (if u dont want any, its 0)
+
+touch prueba.txt # Creates an empty file named prueba.txt (or updates its timestamp if it exists)
+chmod 600 prueba.txt # Sets permissions to rw------- (only the owner can read and write)
+ls -l prueba.txt # Displays detailed file info, including current permissions
+chmod 755 prueba.txt # Sets permissions to rwxr-xr-x (owner can read/write/execute, others can read/execute)
+ls -l prueba.txt  # Shows updated permissions after the change
