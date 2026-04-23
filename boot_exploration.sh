@@ -81,3 +81,5 @@ sudo -i # Starts an interactive root shell (logs in as root with full privileges
 exit # Exits the current shell (returns from root shell to normal user)
 sudo su # Switches to the root user by starting a shell as root (uses sudo to gain superuser privileges)
 sudo su -   # Switches to the root user and loads root’s full login environment (like a fresh root login shell)
+echo "$HOME"   # Prints the value of the HOME environment variable (your home directory) because double quotes allow variable expansion
+echo '$HOME'   # Prints the literal text "$HOME" because single quotes prevent variable expansion
