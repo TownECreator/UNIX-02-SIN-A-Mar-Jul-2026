@@ -68,3 +68,10 @@ cat /etc/archivo_protegido #displays the file’s content (if you have permissio
 
 echo "hola" | sudo tee /etc/archivo_protegido #writes “hola” into a protected file using sudo and also prints “hola” on the screen
 #both of these are absolute routes (cat and ls)
+
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido'  # Runs a root shell that appends "chao" to a protected file in /etc (creates it if it doesn't exist) the >> means it's appending  something
+
+# Interactive shell: user types commands and gets immediate output (has prompt, e.g., terminal session)
+# Non-interactive shell: runs commands automatically without user input (e.g., scripts, sudo sh -c)
+# Kernel: core of the OS (not interactive/non-interactive)
+# Folders (directories): just storage locations (not interactive/non-interactive)
