@@ -75,3 +75,9 @@ sudo sh -c 'echo "chao" >> /etc/archivo_protegido'  # Runs a root shell that app
 # Non-interactive shell: runs commands automatically without user input (e.g., scripts, sudo sh -c)
 # Kernel: core of the OS (not interactive/non-interactive)
 # Folders (directories): just storage locations (not interactive/non-interactive)
+#when using sudo, we need to also remember to close the session in a superuser
+
+sudo -i # Starts an interactive root shell (logs in as root with full privileges)
+exit # Exits the current shell (returns from root shell to normal user)
+sudo su # Switches to the root user by starting a shell as root (uses sudo to gain superuser privileges)
+sudo su -   # Switches to the root user and loads root’s full login environment (like a fresh root login shell)
