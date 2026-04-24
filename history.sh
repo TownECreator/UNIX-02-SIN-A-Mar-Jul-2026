@@ -53,3 +53,25 @@
    53  chmod o+x /tmp/kepler_zone
    54  ls -ld /tmp/kepler_zone
    55  history
+   56  git add .
+   57  git commit -m "Fix problem 6: sticky bit in /tmp/kepler_zone"
+   58  git add ../../history.sh
+   59  git add .
+   60  git commit -m "Fix problem 6: sticky bit in /tmp/kepler_zone"
+   61  gpg --full-generate-key
+   62  git --list-keys
+   63  gpg --list-keys
+   64  gpg --encrypt --recipient vega@kepler.lab registros/sensores.log
+   65  ls registros
+   66  git add .
+   67  git commit -m "Fix problem 7: GPG key generated and sensores.log cyphered"
+   68  gpg --clearsign ajustes.conf
+   69  ls 
+   70  gpg --verify runner.sh.sig runner.sh
+   71  gpg --verify kepler/runner.sh.sig kepler/runner.sh
+   72  gpg --verify runner.sh.sig runner.sh
+   73  gpg --detach-sign runner.sh
+   74  gpg --verify runner.sh.sig runner.sh
+   75  git add .
+   76  git commit -m "Fix problem 8: GPG signatures corrected and created"
+   77  history
