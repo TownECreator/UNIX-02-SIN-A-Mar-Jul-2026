@@ -34,4 +34,22 @@
    34  git add .
    35  git commit -m "Fix problem 4: symbolic permissions corrected"
    36  history
-   
+    37  ls -l runner.sh
+   38  chmod u+s runner.sh
+   39  ls -l runner.sh
+   40  git add .
+   41  git commit -m "Fix problem 5: SUID acive on runner.sh"
+   42  git add .
+   43  git status
+   44  git add ../../history.sh
+   45  history
+@TownECreator ➜ /w
+ 47  git commit -m "Fix problem 5: SUID acive on runner.sh"
+   48  ls -ld /tmp/kepler_zone
+   49  mkdir /temp/kepler_zone
+   50  mkdir /tmp/kepler_zone
+   51  chmod +t /tmp/kepler_zone
+   52  ls -ld /tmp/kepler_zone
+   53  chmod o+x /tmp/kepler_zone
+   54  ls -ld /tmp/kepler_zone
+   55  history
