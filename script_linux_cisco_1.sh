@@ -17,3 +17,14 @@ aptitude -vvvv moo # More higher vervosity, it asnwers with a: Okay, okay, if I 
 #In the next v we add, the command with give us a 'elephant being eaten by a snake' referencing The Little Prince.
 
 pwd #prints the full path of the current working directory, showing exactly where you are in the filesystem
+
+cd  #Goes to your home directory (~), this always works even in Codespaces regardless of existing folders
+cd Documents #Attempts to enter "Documents" from current location, but will fail if that folder doesn’t exist in your environment
+cd / #Moves to the root directory (/) which always exists as the top level of the filesystem
+cd /home/sysadmin #Tries to go to this exact absolute path, will fail if the user/folder isn’t present in Codespaces
+cd School/Art #Attempts to enter nested folders using a relative path, fails if "School/Art" doesn’t exist
+cd School #Tries to enter "School" in current directory, will fail if the folder is not there
+cd Art #Tries to enter "Art" inside current directory, fails if it doesn’t exist
+cd .. #Moves up to the parent directory, works unless you’re already at root (/)
+cd ~ #Returns to your home directory using ~ shortcut, always works
+cd . #Moves up one directory again from wherever you currently are
