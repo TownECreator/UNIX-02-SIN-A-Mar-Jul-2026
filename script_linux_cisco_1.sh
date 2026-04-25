@@ -45,3 +45,10 @@ sudo sl #Runs 'sl' (Steam Locomotive ASCII train) with sudo; works only if 'sl' 
 
 cd ~/Documents #Moves to the Documents folder inside your home directory (~); will fail if the folder doesn’t exist in Codespaces
 ls -l hello.sh #Lists detailed information about 'hello.sh' (permissions, size, owner, date); fails if the file isn’t present
+
+cd ~/Documents #Moves to Documents in your home directory; fails if the folder doesn’t exist in Codespaces
+ls -l hello.sh #Shows detailed info for hello.sh (permissions, size, etc.); fails if the file isn’t there
+./hello.sh #Tries to execute the script; will fail if it doesn’t have execute permission or doesn’t exist
+chmod u+x hello.sh #Adds execute permission for the user, allowing the script to be run
+ls -l hello.sh #Shows updated permissions, now including 'x' (execute) for the user
+./hello.sh #Executes the script successfully if it exists and now has execute permission
