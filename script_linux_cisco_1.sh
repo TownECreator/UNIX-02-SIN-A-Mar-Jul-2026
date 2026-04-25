@@ -35,3 +35,10 @@ ls -lt /var/log/ #Same as -l but sorted by most recent modification time first
 ls -l -s /var/log/ #Detailed list plus shows file sizes in blocks
 ls -lSr /var/log/ #Detailed list sorted by size (-S) and reversed (-r), smallest files first
 ls -r /var/log/ #Lists files in reverse of the default order
+
+su - #Switches to root user with a full login shell (loads root’s environment); requires root password (not actually possible in codespaces since it's designed to use sudo instead of su)
+su -l #Same as 'su -', explicitly requests a login shell for the target user (usually root)
+su --login #Long form of login shell option, equivalent to 'su -' and 'su -l'
+exit #Exits the current shell or user session (e.g., leaves root and returns to previous user)
+sl #Runs the "Steam Locomotive" program, a fun ASCII train animation often installed as a joke command (e.g., when you type 'ls' wrong)
+sudo sl #Runs 'sl' (Steam Locomotive ASCII train) with sudo; works only if 'sl' is installed and sudo is permitted
