@@ -42,3 +42,6 @@ su --login #Long form of login shell option, equivalent to 'su -' and 'su -l'
 exit #Exits the current shell or user session (e.g., leaves root and returns to previous user)
 sl #Runs the "Steam Locomotive" program, a fun ASCII train animation often installed as a joke command (e.g., when you type 'ls' wrong)
 sudo sl #Runs 'sl' (Steam Locomotive ASCII train) with sudo; works only if 'sl' is installed and sudo is permitted
+
+cd ~/Documents #Moves to the Documents folder inside your home directory (~); will fail if the folder doesn’t exist in Codespaces
+ls -l hello.sh #Lists detailed information about 'hello.sh' (permissions, size, owner, date); fails if the file isn’t present
