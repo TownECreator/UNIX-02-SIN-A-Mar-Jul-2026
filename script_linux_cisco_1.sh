@@ -15,3 +15,5 @@ aptitude -vv moo #Same command with more verbosity, shows a more elaborate cow m
 aptitude -vvv moo #Even higher verbosity, displays the most detailed/complex cow output (It answer with a: Stop it! )
 aptitude -vvvv moo # More higher vervosity, it asnwers with a: Okay, okay, if I give you an Easter Egg, will you go away?
 #In the next v we add, the command with give us a 'elephant being eaten by a snake' referencing The Little Prince.
+
+pwd #prints the full path of the current working directory, showing exactly where you are in the filesystem
