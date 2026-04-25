@@ -28,3 +28,10 @@ cd Art #Tries to enter "Art" inside current directory, fails if it doesn’t exi
 cd .. #Moves up to the parent directory, works unless you’re already at root (/)
 cd ~ #Returns to your home directory using ~ shortcut, always works
 cd . #Moves up one directory again from wherever you currently are
+
+ls #Lists files and folders in the current directory using default sorting
+ls -l /var/log/ #Shows detailed info (permissions, size, dates) for files in /var/log
+ls -lt /var/log/ #Same as -l but sorted by most recent modification time first
+ls -l -s /var/log/ #Detailed list plus shows file sizes in blocks
+ls -lSr /var/log/ #Detailed list sorted by size (-S) and reversed (-r), smallest files first
+ls -r /var/log/ #Lists files in reverse of the default order
