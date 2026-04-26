@@ -60,3 +60,16 @@ head alpha.txt #Shows the first 10 lines of "alpha.txt" (default behavior)
 tail alpha.txt #Shows the last 10 lines of "alpha.txt" (default behavior)
 head -n 5 alpha.txt #Shows only the first 5 lines of "alpha.txt"
 tail -n 5 alpha.txt #Shows only the last 5 lines of "alpha.txt"
+
+cd ~/Documents #Moves into your Documents directory
+cp /etc/passwd . #Copies the file "passwd" from /etc into the current directory (the dot "." means "here")
+ls #Lists all files and folders in the current directory
+
+cd ~ #Moves to your home directory
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50
+#Creates a 50 MB file filled with zeros in /tmp called "swapex"
+#bs=1M → writes in 1 MB blocks
+#count=50 → writes 50 blocks (total = 50 MB)
+dd if=/dev/sda of=/dev/sdb
+# ⚠️DANGEROUS: Copies EVERYTHING from disk /dev/sda to /dev/sdb (bit-by-bit clone)
+# This will OVERWRITE all data on /dev/sdb completely (not executed for safety reasons)
