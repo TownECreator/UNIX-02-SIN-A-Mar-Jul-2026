@@ -52,3 +52,11 @@ ls -l hello.sh #Shows detailed info for hello.sh (permissions, size, etc.); fail
 chmod u+x hello.sh #Adds execute permission for the user, allowing the script to be run
 ls -l hello.sh #Shows updated permissions, now including 'x' (execute) for the user
 ./hello.sh #Executes the script successfully if it exists and now has execute permission
+
+cd ~/Documents #Changes the current directory to the "Documents" folder in your home directory
+cat animals.txt #Displays the entire contents of the file "animals.txt" in the terminal
+cat alpha.txt #Displays the entire contents of the file "alpha.txt"
+head alpha.txt #Shows the first 10 lines of "alpha.txt" (default behavior)
+tail alpha.txt #Shows the last 10 lines of "alpha.txt" (default behavior)
+head -n 5 alpha.txt #Shows only the first 5 lines of "alpha.txt"
+tail -n 5 alpha.txt #Shows only the last 5 lines of "alpha.txt"
