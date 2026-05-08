@@ -205,7 +205,7 @@ WORKDIR /workspaces
 # - init.defaultBranch main: evita warnings de "master vs main" en git init.
 # - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
 # - git lfs install --system: registra los hooks de LFS globalmente para
-#   que, si un repo los necesita, funcionen sin sorpresas.
+#   que, si un repo los necesita, funcionen sin sorpresas. cada RUN es una capa nueva.
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
@@ -229,7 +229,7 @@ __set_prompt() {
     else
         mark="\[\e[31m\]✗ $ec\[\e[0m\]"
     fi
-    PS1="\[\e[36m\][Analista-UIDE]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
+    PS1="\[\e[36m\][PauDome-Cevallos]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
 }
 PROMPT_COMMAND=__set_prompt
 EOF
