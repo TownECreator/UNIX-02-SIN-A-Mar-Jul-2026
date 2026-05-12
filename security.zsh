@@ -57,3 +57,8 @@ ls -l mi_archivo # Verifies the new ownership (luna) and group association (grup
 
 # The following command is used if your current user lacks permissions to access the shared group (does it ask for a passphrase?):
 usermod -aG grupo_test $USER # Adds the current logged-in user to 'grupo_test' to ensure shared access without removing existing groups.
+
+mkdir -p proyecto/sub # Creates the 'proyecto' directory and the 'sub' subdirectory simultaneously (-p ensures parent creation).
+touch proyecto/readme proyecto/sub/datos  # Creates two empty files: 'readme' in the main folder and 'datos' inside the subfolder.
+chown -R luna:grupo_test proyecto # Recursively (-R) changes the owner to 'luna' and the group to 'grupo_test' for the folder and all its contents.
+ls -lR proyecto # Lists all files and subdirectories recursively to verify that ownership was applied to every level.
