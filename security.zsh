@@ -39,9 +39,15 @@ whoami # Displays the username of the current active user to confirm who is exec
 echo "Hola" > mi_archivo # Creates (or overwrites) 'mi_archivo' with the text "Hola" inside it.
 ls -l mi_archivo  # Displays the detailed permissions, owner, and group for 'mi_archivo'.
 useradd -m -s /usr/bin/zsh luna # Creates user 'luna', gives her a home directory, and assigns Zsh as her default shell.
-chown luna mi_archivo feat: initialize user account 'luna' and configure file ownership
+chown luna mi_archivo # Transfers ownership of 'mi_archivo' from the current user to the new user 'luna'.
 
-- Set system umask to 022 for standard directory/file permissions
-- Provision new system user 'luna' with Zsh as the default shell
-- Create 'mi_archivo' and transfer ownership to user 'luna'
-- Verify environment state via whoami and long-format file listing# Transfers ownership of 'mi_archivo' from the current user to the new user 'luna'.
+groups # Lists the groups that the current user belongs to.
+groupadd grupo_test # Creates a new group named 'grupo_test' (initially empty with no members).
+cat /etc/group # Displays the contents of the group file to verify 'grupo_test' exists.
+groups # Lists the current user's groups again to see if membership has changed.
+touch comun # Creates an empty file named 'comun' using the current umask.
+ls -l comun # Displays detailed permissions to check which user and group own 'comun'.
+
+usermod -a -G grupo_test luna # Adds user 'luna' to 'grupo_test' as a secondary group (-a -G) without removing her from existing ones.
+chgrp grupo_test comun # Changes the group ownership of the file 'comun' to 'grupo_test'.
+ls -l comun # Displays file details to verify that 'comun' is now associated with the group 'grupo_test'.
