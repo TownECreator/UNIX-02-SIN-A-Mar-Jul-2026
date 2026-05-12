@@ -51,3 +51,9 @@ ls -l comun # Displays detailed permissions to check which user and group own 'c
 usermod -a -G grupo_test luna # Adds user 'luna' to 'grupo_test' as a secondary group (-a -G) without removing her from existing ones.
 chgrp grupo_test comun # Changes the group ownership of the file 'comun' to 'grupo_test'.
 ls -l comun # Displays file details to verify that 'comun' is now associated with the group 'grupo_test'.
+
+chown luna:grupo_test mi_archivo # Simultaneously changes the owner to 'luna' and the group to 'grupo_test' for the file.
+ls -l mi_archivo # Verifies the new ownership (luna) and group association (grupo_test) in the file metadata.
+
+# The following command is used if your current user lacks permissions to access the shared group (does it ask for a passphrase?):
+usermod -aG grupo_test $USER # Adds the current logged-in user to 'grupo_test' to ensure shared access without removing existing groups.
