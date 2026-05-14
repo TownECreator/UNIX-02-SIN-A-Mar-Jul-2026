@@ -95,3 +95,7 @@ groupadd --help # Displays the help menu and available options for the groupadd 
 #look up the range of GIDs in the system
 grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs # Retrieves the system's defined range for normal and system Group IDs (GIDs) from the login configuration file.
 #System groups have a GID lower than the minimum user
+addgroup disenio # Creates a standard user group named "disenio" using the next available GID in the normal user range (typically 1000+).
+addgroup --gid 2100 marketing # Creates the "marketing" group and forces it to use the specific GID 2100, overriding the default sequential assignment.
+addgroup --system cache_web # Creates a system group named "cache_web" with a lower GID (usually under 1000) for background service permissions.
+grep "disenio\|marketing\|cache_web" /etc/group # Searches the group database to verify the creation and display the assigned GIDs for all three groups.
