@@ -72,3 +72,7 @@ id root #looks up the identity information for the superuser account.
 
 groups # When you run this command without any arguments, it shows the groups for the current shell session.
 groups $USER # The $USER part is an environment variable that holds your username. Running groups $USER tells the system: "Look at the system database (like /etc/group) and tell me every group this specific user is assigned to."
+
+id -u #User ID
+id -g # principal Group ID
+id -G # all the Group IDs
