@@ -76,3 +76,5 @@ groups $USER # The $USER part is an environment variable that holds your usernam
 id -u #User ID
 id -g # principal Group ID
 id -G # all the Group IDs
+
+cat /etc/group | grep root #The command cat /etc/group | grep codespace is used to search for the specific configuration of a group named codespace within the system's group database.
