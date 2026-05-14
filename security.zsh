@@ -78,3 +78,20 @@ id -g # principal Group ID
 id -G # all the Group IDs
 
 cat /etc/group | grep root #The command cat /etc/group | grep codespace is used to search for the specific configuration of a group named codespace within the system's group database.
+
+mkdir ~/proyecto_unix/ # Creates a new directory named "proyecto_unix" in the user's home folder.
+ls -la ~/proyecto_unix/ # Lists all files in the new directory in long format, including hidden system files and permission details.
+#groupadd [options] nombre_grupo
+groupadd desarrolladores #create a simple group
+groupadd -g 2000 operaciones #specific GID
+#the group of the system is GID < 1000
+groupadd --system servicios_web # Creates a new system group called "servicios_web" with a GID typically below 1000, reserved for background services or system applications.
+# . means actual directory, and the .. the father directory of the current one
+#Verify its creation
+grep "desarrolladores\|operaciones\|servicios_web" /etc/group # Searches for specific group entries in the group database using basic regular expressions (escaping the pipe characters).
+grep -E "desarrolladores|operaciones|servicios_web" /etc/group # Performs the same search but uses Extended Regular Expressions (ERE) for a cleaner syntax without backslashes.
+#Look up primary iptions
+groupadd --help # Displays the help menu and available options for the groupadd command, such as setting specific GIDs or creating system accounts.
+#look up the range of GIDs in the system
+grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs # Retrieves the system's defined range for normal and system Group IDs (GIDs) from the login configuration file.
+#System groups have a GID lower than the minimum user
