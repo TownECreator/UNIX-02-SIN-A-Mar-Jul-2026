@@ -63,8 +63,12 @@ touch proyecto/readme proyecto/sub/datos  # Creates two empty files: 'readme' in
 chown -R luna:grupo_test proyecto # Recursively (-R) changes the owner to 'luna' and the group to 'grupo_test' for the folder and all its contents.
 ls -lR proyecto # Lists all files and subdirectories recursively to verify that ownership was applied to every level.
 
-#14/5/202ii6
+#14/5/2026
 id # look the numerical identity of the current user (numerical user ID, Primary group, secondary groups)
 cat /etc/passwd | head -10 # Look up all the users of the system
 #cuando ejecutamos el comando de arriba, el x significa que ese usuario tiene password 
 id root #looks up the identity information for the superuser account.
+#In linux, the passphrases as they are are not saved, what is saved is the HASH of said passphrase (look up RainBoWtABLES AND salt)
+
+groups # When you run this command without any arguments, it shows the groups for the current shell session.
+groups $USER # The $USER part is an environment variable that holds your username. Running groups $USER tells the system: "Look at the system database (like /etc/group) and tell me every group this specific user is assigned to."
