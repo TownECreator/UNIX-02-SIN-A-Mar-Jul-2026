@@ -62,3 +62,9 @@ mkdir -p proyecto/sub # Creates the 'proyecto' directory and the 'sub' subdirect
 touch proyecto/readme proyecto/sub/datos  # Creates two empty files: 'readme' in the main folder and 'datos' inside the subfolder.
 chown -R luna:grupo_test proyecto # Recursively (-R) changes the owner to 'luna' and the group to 'grupo_test' for the folder and all its contents.
 ls -lR proyecto # Lists all files and subdirectories recursively to verify that ownership was applied to every level.
+
+#14/5/202ii6
+id # look the numerical identity of the current user (numerical user ID, Primary group, secondary groups)
+cat /etc/passwd | head -10 # Look up all the users of the system
+#cuando ejecutamos el comando de arriba, el x significa que ese usuario tiene password 
+id root #looks up the identity information for the superuser account.
