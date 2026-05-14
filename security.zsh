@@ -99,3 +99,17 @@ addgroup disenio # Creates a standard user group named "disenio" using the next 
 addgroup --gid 2100 marketing # Creates the "marketing" group and forces it to use the specific GID 2100, overriding the default sequential assignment.
 addgroup --system cache_web # Creates a system group named "cache_web" with a lower GID (usually under 1000) for background service permissions.
 grep "disenio\|marketing\|cache_web" /etc/group # Searches the group database to verify the creation and display the assigned GIDs for all three groups.
+
+User Group Modification and Persistence
+
+    groups # Displays the names of all groups the current user is a member of in the active session.
+    id # Provides a complete breakdown of the current user's UID, primary GID, and all numerical supplemental GIDs.
+    usermod -aG desarrolladores $USER # Appends (-a) the user to the "desarrolladores" group as a supplemental group (-G) without removing them from their existing groups.
+    usermod -aG disenio $USER # Adds the user to the "disenio" group, expanding their permissions to include design-related files and directories.
+
+groupadd grupo_temporal # Creates a new group named "grupo_temporal" for temporary permission testing.
+usermod -aG grupo_tempiral root # Attempts to append the "root" user to the group (Note: ensure the group name spelling matches "grupo_temporal").
+id root # Displays the updated UID, GID, and supplemental group list for the root user to verify the membership change.
+
+usermod -G desarrolladores root # Replaces all of root's previous supplemental groups with only the "desarrolladores" group (Warning: this removes root from any other supplemental groups it was in).
+id root # Displays the root user's identity to verify that its supplemental group list has been updated.
