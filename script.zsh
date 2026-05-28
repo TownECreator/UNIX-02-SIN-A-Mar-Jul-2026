@@ -14,3 +14,18 @@ echo "Grupo actual: $(id -gn)"
 #Create a file before newgrp
 touch ~/antes_de_newgrp.txt
 ls -la ~/antes_de_newgrp.txt
+
+#Create a new group named "Desarrolladores"
+sudo groupadd Desarrolladores
+#Change to the new group
+newgrp Desarrolladores
+#Check the current group again
+id -gn
+echo "Grupo actual después de newgrp: $(id -gn)"
+
+
+touch ~/dentro_de_newgrp.txt
+ls -la ~/dentro_de_newgrp.txt
+mkdir -p ~/proyecto_dev/src
+ls -la ~/
+                     
