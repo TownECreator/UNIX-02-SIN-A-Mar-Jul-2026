@@ -31,4 +31,11 @@ ls -la ~/dentro_de_newgrp.txt
 #create a directory and check its group
 mkdir -p ~/proyecto_dev/src
 ls -la ~/
-                     
+
+#proyecto_dev/ has the group "Desarrolladores" because we are inside the newgrp subshell
+#but src/ has the group of the parent directory, which is the primary group of the
+#exit the newgrp subshell
+exit
+#Check the current group again
+id -gn
+echo "grupo restaurado después de exit: $(id -gn)"
