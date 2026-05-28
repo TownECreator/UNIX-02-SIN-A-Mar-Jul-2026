@@ -39,3 +39,6 @@ exit
 #Check the current group again
 id -gn
 echo "grupo restaurado después de exit: $(id -gn)"
+
+#Compare the groups of the files created before and inside newgrp
+ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
