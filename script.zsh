@@ -24,8 +24,11 @@ id -gn
 echo "Grupo actual después de newgrp: $(id -gn)"
 
 
+#Create a file inside the subshell of newgrp
 touch ~/dentro_de_newgrp.txt
 ls -la ~/dentro_de_newgrp.txt
+#the group of the file is "Desarrolladores" because we are inside the newgrp subshell
+#create a directory and check its group
 mkdir -p ~/proyecto_dev/src
 ls -la ~/
                      
