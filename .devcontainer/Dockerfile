@@ -25,6 +25,19 @@
 # Todo lo que instalemos más abajo se apila ENCIMA de esta base.
 FROM kalilinux/kali-rolling:latest
 
+#--------------------------------------------------------------------
+    # Detailed Comments made by Paula Cevallos
+#--------------------------------------------------------------------
+# This instruction initializes the Docker build process by selecting the foundational "base image." 
+# In containerization, a base image serves as the initial pre-packaged file system snapshot and core 
+# operating system layout Where all the subsequien configurations will be installed and/or developed. Besides, we specifically 
+# use 'kalilinux/kali-rolling' because it is a Linux distribution tailored explicitly for offensive 
+# security, pen-testing, and security auditing, and since we are developing the BHB Book, it fits like a glove. It also comes natively equipped with specialized network 
+# utilities and security repositories that would take hours to configure manually. This ties closely into 
+# Black Hat Bash Chapter 3 ("Setting Up a Hacking Lab"), where the authors emphasize the necessity of 
+# isolating your scripting experiments inside a dedicated Kali-Docker testing sandbox to safely run 
+# security binaries without risking the integrity or exposing the host machine's operating system environment 
+# (Lab Environments - BHB Ch. 3).
 
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
