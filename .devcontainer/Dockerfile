@@ -53,6 +53,19 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
 
+#--------------------------------------------------------------------------
+    #Detailed description by Paula Cevallos
+#--------------------------------------------------------------------------
+#These lines, in short, define persistent environment variables, DEBIAN_FRONTEND=noninteractive forces apt-get to assume default
+#responses so that the processes run smoothly and uninterrupted, and overall makes it more efficient.
+#LANG and LC_all are environment variables that set the systems "locale", meaning language,
+#character encoding and cultural formatting rules (date, time and currency), in addition to that, UTF-8 (8-bit Unicode Transformation Format) is the encoding standard
+#used to translate human text into binary (computer's language), in this case, it's used for the spanish language.
+#Finally, TERM=xterm-256color informs the terminal that our console environment will support the full 256-bit ANSI
+#escape colour rendering schemas. These command lines relate heavily to chapter 1 of Black Hat Bash Creative Scripting - Environmental Setup, subchapter
+#"Checking Environment Variables", as we talk about how the envornment variables scripted in the dockerfile serve the purpose of being a "direction map"
+#in the sense of programs using their specifications to know the location of the home directory, default shell, among others (Environment Variables- BHB, ch.1).
+
 
 # ----------------------------------------------------------------------------
 # Pre-respuesta a una pregunta interactiva de Wireshark
