@@ -276,6 +276,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+ #----------------------------------------------------------------
+#   Detailed Description by Paula Cevallos
+#-------------------------------------------------------------------
+# This part is our image space cleanup phase. 'apt-get clean' wipes out the downloaded 
+# package archive files (.deb files) that are sitting in our temporary cache, and 'rm -rf' completely 
+# deletes the local package manager repository lists we downloaded during the update phase. 
+# The key detail here is that we are running this cleanup inside the exact same RUN instruction block. 
+# If we were to run this cleanup step in a separate, later RUN command, the temporary files would already 
+# be permanently locked inside the previous image layer, and deleting them later wouldn't shrink the final 
+# container footprint. Erasing this installation garbage right here allows the layer to freeze without 
+# any extra weight, keeping our environment fast to download and deploy (Lab Optimization — BHB Ch. 3).
+
 
 # ----------------------------------------------------------------------------
 # SHELL: qué intérprete usar en los siguientes RUN
