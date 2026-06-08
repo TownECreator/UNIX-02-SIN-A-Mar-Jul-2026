@@ -39,6 +39,20 @@ FROM kalilinux/kali-rolling:latest
 # security binaries without risking the integrity or exposing the host machine's operating system environment 
 # (Lab Environments - BHB Ch. 3).
 
+#--------------------------------------------------------------------
+#   Detailed Comments made by Paula Cevallos (Block b)
+#-------------------------------------------------------------
+# This is where we need to understand how Docker images, layers, and caching work. 
+# Think of a Docker image like a stack of read-only layers. Every single instruction 
+# we write down here (like FROM, ENV, or RUN) adds a brand-new layer right on top of the previous one.
+# Docker uses a "layer cache" to speed things up. When you rebuild a container, Docker checks 
+# if you changed any lines. If a line is exactly the same as before, Docker doesn't bother re-running it; 
+# it just reuses the cached layer from your computer. But if you modify a line, that layer breaks, 
+# and Docker is forced to completely rebuild that line AND every single line that comes after it from scratch! 
+# We purposely place static, heavy commands that rarely change (like setting global environment variables or installing massive system tools) at the very top, 
+# and keep highly dynamic things (like custom script configurations or setting the startup prompt) at the very bottom. 
+# This keeps our rebuilds lightning-fast. This maps straight to Black Hat Bash Chapter 3, which focuses on optimizing our virtualized hacking labs to be fast to deploy (Lab Setup - BHB Ch. 3).
+
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
 # ----------------------------------------------------------------------------
