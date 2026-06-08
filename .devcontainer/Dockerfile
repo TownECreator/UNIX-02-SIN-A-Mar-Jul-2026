@@ -297,6 +297,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # moderna (arrays, [[ ]], etc.).
 SHELL ["/bin/bash", "-c"]
 
+#------------------------------------------------------------------
+#   Detailed Description by Paula Cevallos
+#--------------------------------------------------------------------
+# This instruction explicitly changes the default command interpreter used by Docker for any RUN steps 
+# that follow it. By default, Docker builds use '/bin/sh', which is a very old, minimal, and stripped-down 
+# shell that lacks advanced features. By switching to '/bin/bash' with the '-c' flag (which tells bash to 
+# read commands from a string), we make sure we can use advanced scripting tools. 
+#
+# As we learn in Black Hat Bash Chapter 1, Bash is a much more robust shell that supports modern syntax like 
+# arrays, advanced loops, custom functions, and powerful logical testing brackets ('[[ ]]'). Setting this 
+# here guarantees that if we or our instructor write complex automation scripts further down the Dockerfile, 
+# they won't break due to the limitations of the old sh shell (The Shell Environment — BHB Ch. 1).
+
+
 
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
