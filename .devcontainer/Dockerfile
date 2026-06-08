@@ -245,12 +245,30 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # jq: A command-line JSON processor that easily slices, filters, and reads structured API and data outputs.
 # man-db: Restores the built-in system documentation manuals. Standard Docker images strip out manual pages to save space, but we need them so we can run commands like 'man bash' or 'man grep' to look up tool behavior (BHB Ch. 1).
  
+
+
 # --- Después de instalar, activamos el idioma español ---
  # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
  # activar esa línea. Luego locale-gen compila los archivos de idioma.
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
+
+ #-----------------------------------------------------------------------
+#   Detailed Description by Paula Cevallos
+#-----------------------------------------------------------------------
+# This part consists in forcing our Linux environment to "speak" and understand Spanish (since we've decided to use this language :D). 
+# We use 'sed', which stands for stream editor. As explained in Black Hat Bash Chapter 2, sed is a 
+# powerful text-processing tool used to search and modify text inside a file without opening an editor. 
+# The '-i' flag stands for "in-place," meaning sed will modify the target file ('/etc/locale.gen') directly.
+# Also, the command uses a substitution regular expression structure: 's/search/replace/'. It searches for the 
+# commented-out string '# es_ES.UTF-8' and replaces it with 'es_ES.UTF-8' without the hash. 
+# Right after that, we run 'locale-gen'. This binary reads our modified configuration file and compiles the selected 
+# Spanish language maps so the system can render Latin characters like the 'Ñ' or accented vowels perfectly 
+# inside our terminal sessions (Text Processing with sed — BHB Ch. 2).
+
+
+
  # --- Limpieza final: reducir el tamaño de la imagen ---
  # apt deja archivos de caché que ya no necesitamos después de instalar.
  # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
