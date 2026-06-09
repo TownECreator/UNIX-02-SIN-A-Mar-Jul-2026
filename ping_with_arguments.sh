@@ -11,3 +11,6 @@ ping -c 5 "${TARGET}"
 #./ping_with_arguments.sh nostarch.com
 #-c 5 is to ONLY ping 5 times
 #the order 127.0.0.1 is in $1, and is saved in TARGET
+
+echo "The arguments are $@"
+echo "The total number of arguments is: $#"
