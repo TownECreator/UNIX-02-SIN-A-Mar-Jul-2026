@@ -239,7 +239,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Moreover, here is what our core installed tools are actually used for in our hacking labs:
 # gawk, sed, & grep: These are our fundamental text-processing utilities! As highlighted in Black Hat Bash Chapter 2, they let us read files, filter strings, search for text patterns, and stream-edit configurations on the fly using regular expressions.
 # shellcheck: A static code linter that automatically scans our custom Bash scripts to find bugs, syntax mistakes, or missing bracket spaces before we run them.
-# nmap: The classic network recon tool used for discovering active hosts and scanning open ports (BHB Ch. 3).
+# nmap: The classic network recon tool used for discovering active hosts and scanning open ports.
 # tcpdump & tshark: Command-line network packet sniffers. We use them to capture, log, and analyze raw network traffic streams passing through live interfaces (BHB Ch. 3).
 # tor & proxychains4: Anonymity and security utilities. They let us route our shell connections through encrypted proxy relays to mask our terminal identity during testing labs (BHB Ch. 3).
 # jq: A command-line JSON processor that easily slices, filters, and reads structured API and data outputs.
@@ -286,7 +286,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # If we were to run this cleanup step in a separate, later RUN command, the temporary files would already 
 # be permanently locked inside the previous image layer, and deleting them later wouldn't shrink the final 
 # container footprint. Erasing this installation garbage right here allows the layer to freeze without 
-# any extra weight, keeping our environment fast to download and deploy (Lab Optimization — BHB Ch. 3).
+# any extra weight, keeping our environment fast to download and deploy.
 
 
 # ----------------------------------------------------------------------------
@@ -319,6 +319,18 @@ SHELL ["/bin/bash", "-c"]
 # /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
 # terminales se abran cerca de nuestros archivos del curso.
 WORKDIR /workspaces
+
+#-----------------------------------------------------------------------
+#   Detailed Description by Paula Cevallos
+#----------------------------------------------------------------------------
+# The WORKDIR instruction sets the default filesystem path directory where any future RUN, CMD, 
+# or ENTRYPOINT commands will execute during the build phase. Crucially, it's also the exact folder 
+# location our shell will drop us into when the container boots up. We set it to '/workspaces' 
+# because that is the universal root directory where GitHub Codespaces and VSCode devcontainers automatically mount our cloned project repository files.
+#This connects directly to the path navigation and terminal directory concepts in Black Hat Bash Chapter 1. 
+# By setting this up in the Dockerfile, we pre-configure the 'PWD' (Print Working Directory) environment 
+# state so that students are instantly dropped into the right workspace folder without needing to manually 
+# run 'cd' commands (Environmental Setup— BHB Ch. 1).
 
 # Configuración de Git para el contenedor:
 # - safe.directory *: confía en cualquier repo montado (necesario porque
