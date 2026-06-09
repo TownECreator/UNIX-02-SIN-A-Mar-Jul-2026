@@ -344,6 +344,20 @@ RUN git config --system --add safe.directory '*' \
  && git config --system pull.rebase false \
  && git lfs install --system
 
+
+ #-----------------------------------------------------------------------
+#   Detailed Description by Paula Cevallos (Block j)
+#-----------------------------------------------------------------------
+# This RUN block configures environment settings globally inside the container using the '--system' flag. 
+# 1. safe.directory '*': This tells the system to trust repositories accessed by any user inside the container. 
+# This relates to the root account privilege and user identity concepts in Black Hat Bash Chapter 1. Because the 
+# host machine's User ID and the container's root ID don't match, this flag avoids permission blocks.
+# 2. init.defaultBranch main: Sets 'main' as the default branch name to keep things standardized.
+# 3. pull.rebase false: Configures the default merge behavior when downloading updates to handle file stream changes cleanly.
+# 4. git lfs install --system: Sets up Large File Storage system-wide so the container can download heavy binary files 
+# and tools smoothly without breaking our isolated lab testing environment (Setting Up a Hacking Lab — BHB Ch. 3).
+
+
 # ----------------------------------------------------------------------------
 # CMD: comando que se ejecuta por defecto al arrancar el contenedor
 # ----------------------------------------------------------------------------
