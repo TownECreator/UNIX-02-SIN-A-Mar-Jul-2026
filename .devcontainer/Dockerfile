@@ -389,6 +389,25 @@ RUN cat >> /root/.zshrc <<'EOF'
 
 PROMPT='%F{cyan}[PauDome-Cevallos]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✗ %?)%f %# '
 EOF
+
+#-----------------------------------------------------------------------
+#   Detailed Description by Paula Cevallos (Block l)
+#-----------------------------------------------------------------------
+# This block utilizes a multi-line input redirection technique known as a "Here-document" or "heredoc". 
+# As explained in Black Hat Bash Chapter 1, instead of passing standard input from an external file 
+# or running separate 'echo' commands for every single line, the '<<' delimiter tells the shell to 
+# capture everything we type continuously until it hits our designated stop word, which is 'EOF' (End Of File). 
+# We wrap 'EOF' in single quotes ('EOF') to prevent the shell from prematurely evaluating or expanding 
+# any symbols inside the text during the image build phase. The 'cat >>' command takes this entire stream 
+# of captured text and appends it directly to the end of the '/root/.zshrc' file, which is the startup script 
+# that loads every time a new Zsh shell environment initializes (BHB Ch. 1).
+# Inside this appended configuration, the 'PROMPT' environment variable alters the visual interface of our 
+# terminal line. It overwrites the standard shell prompt string with a custom, multi-line layout tailored 
+# for a security lab environment. The special formatting tokens break down like this:
+# - '%F{color}': Sets the text color for the following characters (switching between red, blue, and white).
+# - '%n': Dynamically resolves and prints the active account username (which is 'root').
+# - '%~': Dynamically extracts and displays the current working directory path relative to the user's home folder.
+# - '┌──', '└─', and '﹩': Purely aesthetic ascii/unicode symbols that structure the look of our terminal line so it looks like a clean, professional station.
 CMD ["/bin/zsh"]
 
 
