@@ -368,6 +368,20 @@ RUN git config --system --add safe.directory '*' \
 # Prompt del curso para bash
 RUN chsh -s /usr/bin/zsh root
 
+#-----------------------------------------------------------------------
+#   Detailed Description by Paula Cevallos
+#-----------------------------------------------------------------------
+# This line uses the 'chsh' command, which stands for "change shell". The '-s' flag specifies 
+# the absolute system path of the new shell interpreter we want to switch to ('/usr/bin/zsh'), 
+# and we target this change specifically for the 'root' superuser account. 
+# This connects straight to Black Hat Bash Chapter 1 ("Accesing the Bash Shell"), where the authors 
+# explain that a shell is simply a program that sits on top of the kernel to read and execute your 
+# terminal commands. While our earlier instruction swapped the internal Docker builder interpreter to Bash, 
+# this line permanently alters the actual account profile environment. By switching the root user from 
+# standard Bash to Zsh, we ensure that the moment an interactive terminal session opens, we get access to 
+# Zsh's advanced interactive features like tab-completion (a godsend), themes, and spelling correction (BHB Ch. 1).
+
+
 # ===== Prompt institucional para los y las estudiantes del curso =====
 RUN cat >> /root/.zshrc <<'EOF'
 
