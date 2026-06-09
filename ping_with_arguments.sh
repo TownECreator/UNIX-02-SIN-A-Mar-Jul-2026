@@ -12,5 +12,10 @@ ping -c 5 "${TARGET}"
 #-c 5 is to ONLY ping 5 times
 #the order 127.0.0.1 is in $1, and is saved in TARGET
 
-echo "The arguments are $@"
+echo "The arguments are $ @"
 echo "The total number of arguments is: $#"
+
+# Change "$@" to "$*" to observe behavior.
+for args in "$@"; do
+echo "${args}"
+done
