@@ -391,7 +391,7 @@ PROMPT='%F{cyan}[PauDome-Cevallos]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✗
 EOF
 
 #-----------------------------------------------------------------------
-#   Detailed Description by Paula Cevallos (Block l)
+#   Detailed Description by Paula Cevallos
 #-----------------------------------------------------------------------
 # This block utilizes a multi-line input redirection technique known as a "Here-document" or "heredoc". 
 # As explained in Black Hat Bash Chapter 1, instead of passing standard input from an external file 
@@ -404,12 +404,20 @@ EOF
 # Inside this appended configuration, the 'PROMPT' environment variable alters the visual interface of our 
 # terminal line. It overwrites the standard shell prompt string with a custom, multi-line layout tailored 
 # for a security lab environment. The special formatting tokens break down like this:
-# - '%F{color}': Sets the text color for the following characters (switching between red, blue, and white).
-# - '%n': Dynamically resolves and prints the active account username (which is 'root').
-# - '%~': Dynamically extracts and displays the current working directory path relative to the user's home folder.
-# - '┌──', '└─', and '﹩': Purely aesthetic ascii/unicode symbols that structure the look of our terminal line so it looks like a clean, professional station.
-CMD ["/bin/zsh"]
+#'%F{color}': Sets the text color for the following characters (switching between red, blue, and white).
+#'%n': Dynamically resolves and prints the active account username (which is 'root').
+#'%~': Dynamically extracts and displays the current working directory path relative to the user's home folder.
 
+CMD ["/bin/zsh"]
+#-----------------------------------------------------------------------
+#   Detailed Description by Paula Cevallos 
+#-----------------------------------------------------------------------
+# The CMD instruction defines the default command or application that will execute automatically 
+# the exact moment a container boots up from this frozen image snapshot. 
+# The principal differences between 'RUN' and 'CMD' in containerization are:
+# RUN executes commands during the IMAGE BUILD phase. It acts like a temporary installer step, running tasks sequentially to modify the filesystem and freeze those changes into permanent image layers.
+# CMD does absolutely nothing during the build phase. Instead, it simply registers a default execution trigger. When we (us mortal students) spin up our GitHub Codespace or local devcontainer, this instruction fires 
+# and launches '/bin/zsh', guaranteeing that the container drops us directly into a live, interactive Zsh shell terminal loop right at startup so we can immediately start typing hacking lab exercises (BHB Ch. 3).
 
 
 
