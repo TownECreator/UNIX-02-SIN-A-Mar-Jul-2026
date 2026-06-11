@@ -1,10 +1,9 @@
 #!/bin/bash
-FILENAME="flow_control_with_if.txt"
 
-if [[ -f "${FILENAME}" ]]; then
+FILENAME="flow_control_with_if1.txt"
 
-    echo "${FILENAME} already exists."
-    exit 1
-else
-    touch "${FILENAME}"
+if [[ ! -f "${FILENAME}" ]]; then
+
+touch "${FILENAME}"
+
 fi
