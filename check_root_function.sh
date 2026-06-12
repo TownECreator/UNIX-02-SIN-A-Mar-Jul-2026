@@ -24,3 +24,10 @@ else # Handles the fallback flow if the function returns a non-zero exit code.
 echo "User is not root!" # Prints an output indicating that the current runtime environment does not have root privileges.
 
 fi # Closes the main conditional block of the script.
+
+#adduser luna
+#here we create a standard user with the name of 'luna'.
+#su - luna
+#here we change and enter the user 'luna'.
+#bash check_root_function
+#by exectuing this script, we check if user 'luna' is a root (it is not).
