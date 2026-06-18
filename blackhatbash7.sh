@@ -33,3 +33,10 @@ Carlos,Andrade,Cuenca
 EOF
 awk -F',' '{print $1}' example_csv.txt
 
+head log.txt
+
+awk 'NR < 10' log.txt
+
+grep "42.236.10.117" log.txt
+awk '{print $7}' log.txt
+grep "42.236.10.117" log.txt | awk '{print $7}'
