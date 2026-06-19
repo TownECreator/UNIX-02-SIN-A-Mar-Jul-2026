@@ -61,3 +61,11 @@ sed 's/ //g' newlog.txt > newlog1.txt
 sed '8,10d' newlog1.txt
 
 sed -n '10,15 p' log.txt
+
+sleep 100 &
+
+ps -ef | grep sleep
+
+jobs
+
+fg %1
