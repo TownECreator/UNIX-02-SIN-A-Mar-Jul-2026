@@ -71,3 +71,8 @@ jobs
 fg %1
 
 bg %1
+
+#for excercise 2:
+nohup ./ping_tracker.sh mysite nostarch.com &
+#For excersice 2, I used the following command to make sure the process ecercise_solution.sh is still alive:
+ps -ef | grep exercise_solution.sh
