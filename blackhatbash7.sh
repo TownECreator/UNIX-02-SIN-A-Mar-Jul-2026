@@ -46,4 +46,13 @@ sed 's/Mozilla/Godzilla/g' log.txt
 
 sed 's/Mozilla/Godzilla/g' log.txt > new_log.txt
 
-grep "Godzilla" new_log.txt
+ sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt
+
+  sed '1d' newlog.txt
+   sed -i '1d' newlog.txt
+   git diff
+
+sed -i '$d' newlog.txt
+
+wc -l log.txt newlog.txt
+
