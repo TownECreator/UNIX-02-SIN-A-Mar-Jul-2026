@@ -69,3 +69,5 @@ ps -ef | grep sleep
 jobs
 
 fg %1
+
+bg %1
